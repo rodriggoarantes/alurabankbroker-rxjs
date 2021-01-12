@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { User } from './model/user';
 import { UserLogin } from './model/user-login';
-import { environment } from 'src/environments/environment';
-
+import { environment } from 'environments/environment';
 
 const CACHE_KEY_TOKEN = 'TOKEN';
 const TOKEN_ENDPOINT = `${environment.api}/user/login`;

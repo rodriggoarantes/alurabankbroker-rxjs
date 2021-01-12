@@ -4,4 +4,12 @@
       <po-input p-label="Ações" [formControl]="acoesInput"></po-input>
     </div>
   </div>
+  <div class="td-page-wrapper" *ngIf="acoes; else noDataBlock">
+    <div class="po-row">
+      <div class="po-md-4" *ngFor="let acao of acoes">
+        <app-card-acoes [acao]="acao"></app-card-acoes>
+      </div>
+    </div>
+  </div>
+  <ng-template #noDataBlock><h2>Não há dados</h2></ng-template>
 </po-page-default>

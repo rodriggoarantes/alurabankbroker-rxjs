@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthorizationService } from '../authorization/authorization.service';
-import { MessagesService } from '../messages/messages.service';
-import { environment } from 'src/environments/environment';
-import { PoPageLogin } from '@po-ui/ng-templates';
-import { UserLogin } from '../authorization/model/user-login';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Subscription } from 'rxjs';
+import { PoPageLogin } from '@po-ui/ng-templates';
+
+import { AuthorizationService } from '@app/authorization/authorization.service';
+import { MessagesService } from '@app/messages/messages.service';
+import { UserLogin } from '@app/authorization/model/user-login';
+
+import { environment } from 'environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -49,9 +51,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.authService.login(user).subscribe(
         () => {
           this.isLoading = false;
-          const redirect = this.authService.redirectUrl
-            ? this.authService.redirectUrl
-            : '/home';
+          const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/home';
           this.route.navigate([redirect]);
         },
         (error: HttpErrorResponse) => {

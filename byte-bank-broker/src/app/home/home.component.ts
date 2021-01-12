@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { PoMenuItem, PoToolbarAction, PoToolbarProfile } from '@po-ui/ng-components';
 import { Subscription } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment } from 'environments/environment';
 
 import { AuthorizationService } from '../authorization/authorization.service';
 import { User } from '../authorization/model/user';
@@ -27,10 +27,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   public name: string;
 
-  constructor(
-    private router: Router,
-    private authService: AuthorizationService
-  ) {
+  constructor(private router: Router, private authService: AuthorizationService) {
     this.title = environment.name;
     this.logo = `../../${environment.imagesPath}/bytebank.png`;
   }
